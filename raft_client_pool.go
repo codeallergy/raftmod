@@ -18,7 +18,7 @@ import (
 	"context"
 	"crypto/tls"
 	"github.com/codeallergy/glue"
-	raftapi "github.com/codeallergy/raft"
+	"github.com/codeallergy/raftapi"
 	"github.com/go-errors/errors"
 	"github.com/hashicorp/raft"
 	"go.uber.org/zap"

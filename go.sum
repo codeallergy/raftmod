@@ -561,8 +561,8 @@ github.com/cncf/xds/go v0.0.0-20220314180256-7f1daf1720fc/go.mod h1:eXthEFrGJvWH
 github.com/cncf/xds/go v0.0.0-20230105202645-06c439db220b/go.mod h1:eXthEFrGJvWHgFFCl3hGmgk+/aYT6PnTQLykKQRLhEs=
 github.com/codeallergy/glue v1.0.2 h1:78S8Wvi7ozAztejSAhC86vR7LY0OBoN1BbDfQcMq9wE=
 github.com/codeallergy/glue v1.0.2/go.mod h1:7FDCk+rgtr7r51AjDEBcBaZDHHl+TJKKWcTSXV/K8po=
-github.com/codeallergy/raft v1.0.0 h1:8HM+iHrGrVMs84zYwc3jiKFsMhj2epIaBsG3hEluZd4=
-github.com/codeallergy/raft v1.0.0/go.mod h1:QwjxkOV50dLBzQkiPMzvzikE2MFsDJS1fsdPPEQdkJU=
+github.com/codeallergy/raftapi v1.0.0 h1:KHb7ud28K5mfLSeFuP8Jeyo+DmkLG5BXqC1NVSTyO6E=
+github.com/codeallergy/raftapi v1.0.0/go.mod h1:fKW4CoFVsFe3jFYzemu17osjc7cafQH5OKDav9wr93I=
 github.com/codeallergy/raftbadger v1.0.0 h1:gnNbyKxYWThDxDn7XPrAYEIskFCEjz7L9TeatTQCw/0=
 github.com/codeallergy/raftbadger v1.0.0/go.mod h1:ekt77K9FqaFe1J8hoGQok6LFwv5D+TNLTZbCZGw/Vkc=
 github.com/codeallergy/raftpb v1.0.0 h1:sRJKePe6At+BF8RpMGqmWo80KFFCqCfdBp+sVg1JYz4=

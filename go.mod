@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/codeallergy/glue v1.0.2
-	github.com/codeallergy/raft v1.0.0
+	github.com/codeallergy/raftapi v1.0.0
 	github.com/codeallergy/raftbadger v1.0.0
 	github.com/codeallergy/sprint v1.0.4
 	github.com/codeallergy/store v1.0.1

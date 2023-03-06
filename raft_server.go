@@ -18,7 +18,7 @@ import (
 	"crypto/tls"
 	"github.com/codeallergy/glue"
 	"github.com/codeallergy/sprint"
-	raftapi "github.com/codeallergy/raft"
+	"github.com/codeallergy/raftapi"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
 	"go.uber.org/atomic"
