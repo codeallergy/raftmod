@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/codeallergy/glue v1.0.2
-	github.com/codeallergy/raftapi v1.0.0
+	github.com/codeallergy/raftapi v1.0.1
 	github.com/codeallergy/raftbadger v1.0.0
 	github.com/codeallergy/sprint v1.0.4
 	github.com/codeallergy/store v1.0.1
@@ -21,7 +21,7 @@ require (
 	github.com/armon/go-metrics v0.0.0-20190430140413-ec5e00d3c878 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
-	github.com/codeallergy/raftpb v1.0.0 // indirect
+	github.com/codeallergy/raftpb v1.0.1 // indirect
 	github.com/codeallergy/sprintpb v1.0.0 // indirect
 	github.com/codeallergy/uuid v1.0.1 // indirect
 	github.com/dgraph-io/ristretto v0.1.1 // indirect
