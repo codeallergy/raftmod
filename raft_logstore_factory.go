@@ -54,7 +54,7 @@ func (t *implRaftLogStoreFactory) Object() (object interface{}, err error) {
 
 	db, ok := t.RaftStore.Instance().(*badger.DB)
 	if !ok {
-		return nil, errors.New("managed data store 'raft-storage' must have badger backend")
+		return nil, errors.New("managed data delegate 'raft-storage' must have badger backend")
 	}
 
 	return raftbadger.NewLogStore(db, []byte(t.RaftLogPrefix)), nil

@@ -25,14 +25,16 @@ import (
 	"reflect"
 )
 
-var FileSnapshotStoreClass = reflect.TypeOf((*raft.FileSnapshotStore)(nil))
+var SnapshotStoreClass = reflect.TypeOf((*raft.SnapshotStore)(nil)).Elem()
 
 type implRaftSnapshotFactory struct {
 
 	Application sprint.Application `inject`
 	Properties  glue.Properties `inject`
+	SystemEnvironmentPropertyResolver sprint.SystemEnvironmentPropertyResolver `inject`
 
-	RetainSnapshotCount     int          `value:"raft-snapshot.retain-count,default=2"`
+	RetainSnapshotCount int    `value:"raft-snapshot.retain-count,default=5"`
+	KeyProperty         string `value:"raft-snapshot.key-property,default="`
 
 	DataDir           string       `value:"application.data.dir,default="`
 	DataDirPerm       os.FileMode  `value:"application.perm.data.dir,default=-rwxrwx---"`
@@ -79,17 +81,29 @@ func (t *implRaftSnapshotFactory) Object() (object interface{}, err error) {
 		return nil, err
 	}
 
-	// Create the snapshot store. This allows the Raft to truncate the log.
+	// Create the snapshot delegate. This allows the Raft to truncate the log.
 	snapshots, err := raft.NewFileSnapshotStore(snapshotsFolder, t.RetainSnapshotCount, os.Stderr)
 	if err != nil {
 		return nil, fmt.Errorf("raft snapshots '%s' creation error, %v", snapshotsFolder, err)
+	}
+
+	if t.KeyProperty != "" {
+		encryptionToken := t.Properties.GetString(t.KeyProperty, "")
+		if encryptionToken == "" {
+			var ok bool
+			encryptionToken, ok = t.SystemEnvironmentPropertyResolver.PromptProperty(t.KeyProperty)
+			if !ok || encryptionToken == "" {
+				return nil, errors.Errorf("'%s' encryption token is required", t.KeyProperty)
+			}
+		}
+		return NewEncryptedSnapshotStore(snapshots, encryptionToken)
 	}
 
 	return snapshots, nil
 }
 
 func (t *implRaftSnapshotFactory) ObjectType() reflect.Type {
-	return FileSnapshotStoreClass
+	return SnapshotStoreClass
 }
 
 func (t *implRaftSnapshotFactory) ObjectName() string {
@@ -99,5 +113,4 @@ func (t *implRaftSnapshotFactory) ObjectName() string {
 func (t *implRaftSnapshotFactory) Singleton() bool {
 	return true
 }
-
 

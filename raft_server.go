@@ -36,9 +36,9 @@ type implRaftServer struct {
 	TlsConfig       *tls.Config         `inject:"optional"`
 	NodeService     sprint.NodeService  `inject`
 
-	LogStore           raft.LogStore      `inject`
-	StableStore        raft.StableStore   `inject`
-	FileSnapshotStore  *raft.FileSnapshotStore  `inject`
+	LogStore           raft.LogStore       `inject`
+	StableStore        raft.StableStore    `inject`
+	FileSnapshotStore  raft.SnapshotStore  `inject`
 
 	// should be defined by application
 	FSM      raft.FSM   `inject`

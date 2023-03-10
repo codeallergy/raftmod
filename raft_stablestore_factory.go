@@ -53,7 +53,7 @@ func (t *implRaftStableStoreFactory) Object() (object interface{}, err error) {
 
 	db, ok := t.RaftStore.Instance().(*badger.DB)
 	if !ok {
-		return nil, errors.Errorf("managed data store 'raft-storage' must have badger backend")
+		return nil, errors.Errorf("managed data delegate 'raft-storage' must have badger backend")
 	}
 
 	return raftbadger.NewStableStore(db, []byte(t.RaftConfPrefix)), nil
