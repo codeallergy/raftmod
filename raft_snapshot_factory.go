@@ -34,7 +34,7 @@ type implRaftSnapshotFactory struct {
 	SystemEnvironmentPropertyResolver sprint.SystemEnvironmentPropertyResolver `inject`
 
 	RetainSnapshotCount int    `value:"raft-snapshot.retain-count,default=5"`
-	KeyProperty         string `value:"raft-snapshot.key-property,default="`
+	KeyProperty         string `value:"raft-snapshot.key-bean,default="`
 
 	DataDir           string       `value:"application.data.dir,default="`
 	DataDirPerm       os.FileMode  `value:"application.perm.data.dir,default=-rwxrwx---"`
